@@ -68,7 +68,7 @@ Why did I chose XML not JSON? JSON is too messy to representing meta data and at
 
 
 # Sample
-Please check the `tests/countries.py`. It shows the raw data and group countires by region and display countries in multiple sheets. It also contains some basic diagrams.
+Please check the `tests/countries_test.py`. It shows the raw data and group countires by region and display countries in multiple sheets. It also contains some basic diagrams.
 
 If you are interested in more complicated example, you can refer to `tests/test.xml` that is the test XML I am using to test my output and it finally hit 99% code coverage.
 
