@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jinja-excel-template"
-version = "1.0.2"
+version = "1.0.3"
 description = "Jinja based Excel Template support multiple sheets"
 authors = ["AlexYeung <hkalex@gmail.com>"]
 readme = "README.md"
