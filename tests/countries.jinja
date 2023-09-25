@@ -1,0 +1,58 @@
+<excel>
+    <sheet sheet_name="Country Summary">
+        <columns>
+            <column width="auto" />
+            <column width="auto" />
+        </columns>
+        <row>
+            <cell font.bold="true" value="Region Code" />
+            <cell font.bold="true" value="Country Count" />
+            <cell />
+            <cell
+                type="PieChart"
+                chart.title="Country Region Distribution"
+                chart.titles_from_data="True"
+                category_range="A2:A{{ regions.keys()|length + 1 }}"
+                data_range="B2:B{{ regions.keys()|length + 1 }}"
+            />
+        </row>
+        {% for region,counter in regions.items() %}
+        <row>
+            <cell value="{{ region|e }}" />
+            <cell type="Number" value="{{ counter }}" />
+        </row>
+        {% endfor %}
+    </sheet>
+
+    {% for region, countries in details.items() %}
+    <sheet sheet_name="Region_{{ region|e }}">
+        <columns>
+            <column width="auto" />
+            <column width="auto" />
+        </columns>
+        <row>
+            <cell font.bold="true" value="Country Name" />
+            <cell font.bold="true" value="Capital" />
+        </row>
+        {% for country in countries %}
+        <row>
+            <cell value="{{ country.name|e }}" />
+            <cell value="{{ country.capital|e }}" />
+        </row>
+        {% endfor %}
+    </sheet>
+    {% endfor %}
+
+    <sheet type="chart_sheet" sheet_name="Country Chart">
+        <row>
+            <cell
+                type="PieChart"
+                chart.title="Country Region Distribution"
+                chart.titles_from_data="True"
+                category_range="'Country Summary'!A2:A{{ regions.keys()|length + 1 }}"
+                data_range="'Country Summary'!B2:B{{ regions.keys()|length + 1 }}"
+            />
+        </row>
+    </sheet>
+
+</excel>

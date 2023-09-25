@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "jinja-excel-template"
+version = "1.0.2"
+description = "Jinja based Excel Template support multiple sheets"
+authors = ["AlexYeung <hkalex@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/hkalex/jinja-excel-template"
+repository = "https://github.com/hkalex/jinja-excel-template"
+keywords = ["jinja", "excel", "template", "engine", "xlsx", "multi-sheet", "multiple sheets", "dynamic sheets"]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jinja2 = "^3.1.2"
+openpyxl = "^3.1.2"
+lxml = "^4.9.3"
+pytest = "^7.4.2"
+coverage = "^7.3.1"
+pytest-cov = "^4.1.0"
+pillow = "^10.0.1"
+dateutils = "^0.6.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

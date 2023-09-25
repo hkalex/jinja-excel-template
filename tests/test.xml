@@ -1,0 +1,374 @@
+<excel>
+    <!-- Sheet Attributes: https://openpyxl.readthedocs.io/en/stable/api/openpyxl.worksheet.worksheet.html#module-openpyxl.worksheet.worksheet-->
+    <sheet sheet_name="StyleTest"
+        print_title_cols="A:A"
+        print_title_rows="1:1"
+        print_area="A1:B2"
+        page_setup.orientation="landscape"
+        page_setup.paperSize="11"
+    >
+        <columns>
+            <column width="auto" />
+            <column width="20" />
+            <column width="10" />
+            <column hidden="true" />
+        </columns>
+
+        <row height="20"> <!-- first row -->
+            <cell value="1-A1" font.color="FF0000" font.strike="true" font.vertAlign="superscript" />
+            <cell value="1-A2" fill.fill_type="solid" fill.start_color="00FF0000" fill.end_color="00FF0000" />
+            <cell value="1-A3" border.left.border_style="thick"
+                border.left.color="00FF0000"
+
+                border.right.border_style="thick"
+                border.right.color="00FF0000"
+
+                border.top.border_style="thick"
+                border.top.color="00FF0000"
+
+                border.bottom.border_style="thick"
+                border.bottom.color="00FF0000"
+
+                border.diagonal.border_style="thick"
+                border.diagonal.color="00FF0000"
+
+                border.outline="True"
+
+                border.vertical.border_style="thick"
+                border.vertical.color="00FF0000"
+
+                border.horizontal.border_style="thick"
+                border.horizontal.color="00FF0000" />
+        </row>
+        <row /> <!-- second row, empty row -->
+        <row height="auto" > <!-- third row -->
+            <cell value="1-C1"     
+                align.horizontal="right"
+                align.vertical="top"
+                align.wrap_text="true"
+                align.shrink_to_fit="true"
+                align.indent="0.5"/>
+            <cell value="1-C2" />
+            <cell value="1-C3" />
+        </row>
+        <row>
+            <cell value="2023-09-23" />
+            <cell value="2023-09-23 10:34:56" />
+            <cell value="2023-09-23 14:34:56" />
+            <cell />
+        </row>
+        <row><cell value="12345678901234567890" /> <!-- Long Number, it will be text in Excel --></row>
+        <row><cell type="DateTime" value="2023-09-23 14:34:56" number_format="d-mmm-yy" /></row>
+        <row><cell type="DateTime" value="2023-09-23 14:34:56" number_format="d-mmm-yy HH:mm" /></row>
+        <row><cell type="DateTime" value="ABCDEFG" number_format="d-mmm-yy" /></row> <!-- Text -->
+
+        <!-- More Numbers -->
+        <row><cell type="Number" value="123456.4567" number_format="&quot;$&quot;#,##0.00_);[Red](&quot;$&quot;#,##0.00)" /></row>
+        <row><cell type="Number" value="-123456.4567" number_format="&quot;$&quot;#,##0.00_);[Red](&quot;$&quot;#,##0.00)" /></row>
+    </sheet>
+    <sheet sheet_name="Normal" print_area="A1:L10" print_header="1:2">
+        <row> <!-- first row -->
+            <cell value="2-A1" />
+            <cell value="2-A2" />
+            <cell value="2-A3" />
+        </row>
+        <row /> <!-- second row, empty row -->
+        <row> <!-- third row -->
+            <cell value="2-C1" />
+            <cell value="2-C2" />
+            <cell value="2-C3" />
+        </row>
+        <row>
+            <cell type="Number" value="123" number_format="0.00" />
+        </row>
+    </sheet>
+    <sheet sheet_name="ImageTest" print_area="A1:L10" print_header="1:2">
+        <row> <!-- first row -->
+            <cell value="3-A1" />
+            <cell type="Img" 
+                url="https://media.geeksforgeeks.org/wp-content/uploads/20210224040124/JSBinCollaborativeJavaScriptDebugging6-300x160.png"
+                width="100"
+                height="100"
+            />
+            <cell value="2-A3" />
+        </row>
+        <row /> <!-- second row, empty row -->
+        <row> <!-- third row -->
+            <cell value="2-C1" />
+            <cell value="2-C2" />
+            <cell value="2-C3" />
+        </row>
+        <row>
+            <cell type="Number" value="123" number_format="0.00" />
+            <cell type="Number" value="123.456" number_format="0.00" /> <!-- this field  will display 123.46-->
+            <cell type="Number" value="ABC" number_format="0.00" />
+        </row>
+    </sheet>
+    <sheet sheet_name="ImageTest2" print_area="A1:L10" print_header="1:2">
+        <row />
+        <row> <!-- first row -->
+            <cell value="3-A1" />
+            <cell type="Img" 
+                url="https://media.geeksforgeeks.org/wp-content/uploads/20210224040124/JSBinCollaborativeJavaScriptDebugging6-300x160.png"
+            />
+            <cell value="2-A3" />
+        </row>
+        <row hidden="true">
+            <cell value="3-C1" />
+            <cell value="3-C2" />
+        </row>
+    </sheet>
+    <sheet sheet_name="MergeCellTest" print_area="A1:L10" print_header="1:2">
+        <row> <!-- 1 row -->
+            <cell value="A1,B2 merged" merge_right="1" /> <!-- A1,A2 merged -->
+            <cell /> <!-- Merged cell must be empty, or error will be thrown -->
+            <cell value="C1,C2,D1,D2 merged" merge_right="1" merge_down="1" />
+            <cell /> <!-- Merged cell must be empty, or error will be thrown -->
+            <cell value="E1" />
+        </row>
+        <row> <!-- 2 row -->
+            <cell value="A2" />
+            <cell value="B2" />
+            <cell /> <!-- Merged cell must be empty, or error will be thrown -->
+            <cell /> <!-- Merged cell must be empty, or error will be thrown -->
+            <cell value="E2" />
+        </row>
+        <row> <!-- 3 row -->
+            <cell value="A3,A4 merged" merge_down="1" /> <!-- C1,D1 merged-->
+            <cell value="B3" />
+            <cell value="C3" />
+            <cell value="D3" />
+            <cell value="E3" />
+        </row>
+        <row> <!-- 4 row -->
+            <cell /> <!-- Merged cell must be empty, or error will be thrown -->
+            <cell value="B4" />
+            <cell value="C4" />
+            <cell value="D4" />
+            <cell value="E4" />
+        </row>
+        <row> <!-- 5 row -->
+            <cell value="A5" />
+            <cell value="B5" />
+            <cell value="C5" />
+            <cell value="D5" />
+            <cell value="E5" />
+        </row>
+    </sheet>
+    <sheet sheet_name="AreaChartTest" print_area="A1:L10" print_header="1:2">
+        <row>
+            <cell value="Number" />
+            <cell value="Batch 1" />
+            <cell value="Batch 2" />
+        </row>
+        <row>
+            <cell type="Number" value="2" />
+            <cell type="Number" value="40" />
+            <cell type="Number" value="30" />
+        </row>
+        <row>
+            <cell type="Number" value="3" />
+            <cell type="Number" value="40" />
+            <cell type="Number" value="25" />
+        </row>
+        <row>
+            <cell type="Number" value="4" />
+            <cell type="Number" value="50" />
+            <cell type="Number" value="30" />
+        </row>
+        <row>
+            <cell type="Number" value="5" />
+            <cell type="Number" value="30" />
+            <cell type="Number" value="10" />
+        </row>
+        <row>
+            <cell type="Number" value="6" />
+            <cell type="Number" value="25" />
+            <cell type="Number" value="5" />
+        </row>
+        <row>
+            <cell type="Number" value="7" />
+            <cell type="Number" value="50" />
+            <cell type="Number" value="10" />
+        </row>
+        <row />
+        <row />
+        <row>
+            <cell
+                type="AreaChart"
+                chart.title="Area Chart"
+                chart.style="13"
+                chart.width="20"
+                chart.height="10"
+                category_range="A1:C1" 
+                data_range="A2:C7" 
+                x_axis.title="Test"
+                y_axis.title="Percentage"
+            />
+        </row>
+        <row /><row /><row /><row /><row /><row />
+        <row>
+            <cell
+                type="AreaChart3D"
+                chart.title="Area Chart"
+                chart.style="13"
+                chart.width="20"
+                chart.height="10"
+                category_range="A1:C1" 
+                data_range="A2:C7" 
+                x_axis.title="Test"
+                y_axis.title="Percentage"
+            />
+        </row>
+    </sheet>
+    <sheet sheet_name="AreaChartTest2">
+        <row>
+            <cell
+                type="AreaChart"
+                chart.title="Area Chart"
+                chart.style="13"
+                chart.width="20"
+                chart.height="10"
+                category_range="AreaChartTest!A1:C1" 
+                data_range="AreaChartTest!A2:C7" 
+                x_axis.title="Test"
+                y_axis.title="Percentage"
+            />
+        </row>
+    </sheet>
+    <sheet sheet_name="BarChartTest">
+        <row>
+            <cell
+                type="BarChart"
+                chart.title="Bar Chart"
+                chart.type="col"
+                chart.style="10"
+                chart.shape="4"
+                chart.width="20"
+                chart.height="10"
+                category_range="AreaChartTest!A2:A7" 
+                data_range="AreaChartTest!B2:C7" 
+                x_axis.title="Sample length"
+                y_axis.title="Test number"
+            />
+            <cell /><cell /><cell /><cell /><cell /><cell /><cell /><cell /><cell /><cell />
+            <cell
+                type="BarChart"
+                chart.title="Horizontal Bar Chart"
+                chart.type="bar"
+                chart.style="11"
+                chart.shape="4"
+                chart.width="20"
+                chart.height="10"
+                category_range="AreaChartTest!A2:A7" 
+                data_range="AreaChartTest!B2:C7" 
+                x_axis.title="Sample length"
+                y_axis.title="Test number"
+            />
+        </row>
+        <row /><row /><row /><row /><row /><row /><row /><row /><row /><row /><row />
+        <row /><row /><row /><row /><row /><row /><row /><row /><row /><row /><row />
+        <row>
+            <cell
+                type="BarChart"
+                chart.title="Stacked Chart"
+                chart.type="col"
+                chart.style="12"
+                chart.grouping="stacked"
+                chart.overlap="100"
+                chart.shape="4"
+                chart.width="20"
+                chart.height="10"
+                category_range="AreaChartTest!A2:A7" 
+                data_range="AreaChartTest!B2:C7" 
+                x_axis.title="Sample length"
+                y_axis.title="Test number"
+            />
+            <cell /><cell /><cell /><cell /><cell /><cell /><cell /><cell /><cell /><cell />
+            <cell
+                type="BarChart"
+                chart.title="Percent Stacked Chart"
+                chart.type="bar"
+                chart.style="13"
+                chart.grouping="percentStacked"
+                chart.overlap="100"
+                chart.shape="4"
+                chart.width="20"
+                chart.height="10"
+                category_range="AreaChartTest!A2:A7" 
+                data_range="AreaChartTest!B2:C7" 
+                x_axis.title="Sample length"
+                y_axis.title="Test number"
+            />
+        </row>
+    </sheet>
+    <sheet sheet_name="BarChart3DTest">
+        <row>
+            <cell
+                type="BarChart3D"
+                chart.title="Bar Chart"
+                chart.width="20"
+                chart.height="10"
+                category_range="AreaChartTest!A2:A7" 
+                data_range="AreaChartTest!B2:C7" 
+                x_axis.title="Sample length"
+                y_axis.title="Test number"
+            />
+        </row>
+    </sheet>
+    <sheet sheet_name="PieChartTest">
+        <row>
+            <cell value="Pie" /><cell value="Sold" />
+        </row>
+        <row>
+            <cell value="Apple" /><cell type="Number" value="50" />
+        </row>
+        <row>
+            <cell value="Cherry" /><cell type="Number" value="30" />
+        </row>
+        <row>
+            <cell value="Pumpkin" /><cell type="Number" value="10" />
+        </row>
+        <row>
+            <cell value="Chocolate" /><cell type="Number" value="40" />
+        </row>
+        <row>
+            <cell
+                type="PieChart"
+                chart.title="Pie Chart"
+                chart.width="10"
+                chart.height="5"
+                chart.titles_from_data="True"
+                category_range="A2:A5" 
+                data_range="B2:B5" 
+            />
+        </row>
+        <row /><row /><row /><row /><row /><row />
+        <row>
+            <cell
+                type="PieChart3D"
+                chart.title="Pie Chart 3D"
+                chart.width="10"
+                chart.height="5"
+                chart.titles_from_data="True"
+                category_range="A2:A5" 
+                data_range="B2:B5" 
+            />
+        </row>
+    </sheet>
+    <sheet sheet_name="ChartsheetTest" type="chart_sheet">
+        <!-- chart_sheet can have only 1 row and 1 cell-->
+        <row>
+            <cell
+                type="BarChart3D"
+                chart.title="Bar Chart"
+                chart.width="20"
+                chart.height="10"
+                category_range="AreaChartTest!A2:A7" 
+                data_range="AreaChartTest!B2:C7" 
+                x_axis.title="Sample length"
+                y_axis.title="Test number"
+            />
+        </row>
+    </sheet>
+</excel>
