@@ -73,7 +73,7 @@ Please check the `tests/countries.py`. It shows the raw data and group countires
 If you are interested in more complicated example, you can refer to `tests/test.xml` that is the test XML I am using to test my output and it finally hit 99% code coverage.
 
 
-# TODD list
+# TODO list
 1. Filtering and grouping
 1. Auto column width (the current implement is not good enough)
 1. Calculated cell
