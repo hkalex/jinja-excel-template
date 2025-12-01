@@ -81,6 +81,35 @@ If you are interested in more complicated example, you can refer to `tests/test.
 1. Spend more time on openpyxl document (yes unfortunately, I haven't got enough time)
 1. Pivot table?? (not sure the use case about it, put it in low priority)
 
+## Calculated cell
+
+You can add a calculated (computed) cell in the output Excel using the `formula` attribute on the `<cell>` tag. Example:
+
+```xml
+<cell type="Number" formula="1 + 2" />
+```
+
+To use A1 references and ranges:
+
+```xml
+<row>
+    <cell type="Number" value="1" />
+    <cell type="Number" value="2" />
+    <cell type="Number" value="3" />
+</row>
+<row>
+    <cell type="Number" formula="SUM(A1:C1)" />
+</row>
+```
+
+If you prefer Excel to compute the formula client-side, enable pass-through mode:
+
+```xml
+<cell type="Number" formula="SUM([1,2,3])" pass_through="true" />
+```
+
+See `docs/calculated_cell.md` for more details and examples.
+
 
 # About me
 I am from .NET, Java and NodeJS background. This is my first project in Python. When I started this project, I wanted to go to NodeJS, but ExcelJS is not powerful enough comparing to openpyxl. That is why I chose Python. If I am not good at the Python standard, please let me know by email hkalex@gmail.com. Thanks.
